@@ -4,10 +4,12 @@ namespace Integralrechner
 {
     class Program
     {
+        //main
         static void Main()
         {
             int menu1;
 
+            //erstes menu
             do
             {
                 Console.WriteLine("1: Integral berechnen\n2: Programm beenden\n");
@@ -21,6 +23,7 @@ namespace Integralrechner
 
             int menu2;
 
+            //zweites menu
             do
             {
                 Console.WriteLine("Welchen Funktionstyp wollen sie integrieren?\n" +
@@ -34,6 +37,8 @@ namespace Integralrechner
 
             double y;
 
+
+            //switch case für die einzelnen Funktionstypen, bis jetzt nur polynome implementiert
             switch (menu2)
             {
                 case 1:

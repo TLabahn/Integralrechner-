@@ -6,7 +6,9 @@ namespace Integralrechner
 {
     class Polynom
     {
+        //parameter für funktionen bis 6. Grad
         private double[] parameter = new double[7];
+        //nur für die Ausgabe relevant
         private string[] text = new string[7]   {"a", "ax+b", "ax^2+bx+c", "ax^3+bx^2+cx+d",
                                                 "ax^4+bx^3+cx^2+dx+e", "ax^5+bx^4+cx^3+dx^2+ex+f", 
                                                 "ax^6+bx^5+cx^4+dx^3+ex^2+fx+g"};
@@ -16,6 +18,7 @@ namespace Integralrechner
     
         public void polynom()
         {
+            //fragt den gewünschten grad des Polynoms ab
             do
             {
                 Console.WriteLine("Welchen Grad soll ihr Polynom haben (max. Grad 6)?");
@@ -30,6 +33,7 @@ namespace Integralrechner
             Console.WriteLine("Ihre Funktion hat die Form {0}. " +
                         "Geben sie bitte die Parameter der gewünschten Funktion ein.", text[grad]);
 
+            //füllt das array "parameter" mit werten
             for (int i = 6; i >= 0; i--)
             {
                 if(i > grad)
@@ -49,9 +53,12 @@ namespace Integralrechner
             Console.WriteLine("Obere Schranke: ");
             o = Convert.ToDouble(Console.ReadLine());
 
+            //nähert den Wert des Integrals an
             for(double i = u; i < o; i += (o - u)/((o - u) * 1000000))
             {
-                y += (parameter[6] * i * i * i * i * i * i + parameter[5] * i * i * i * i * i + parameter[4] * i * i * i * i + parameter[3] * i * i * i + parameter[2] * i * i + parameter[1] * i + parameter[0]) * (o - u) / ((o - u) * 1000000);
+                y += (parameter[6] * i * i * i * i * i * i + parameter[5] * i * i * i * i * i + 
+                    parameter[4] * i * i * i * i + parameter[3] * i * i * i + parameter[2] * i * i + 
+                    parameter[1] * i + parameter[0]) * (o - u) / ((o - u) * 1000000);
             }
 
         }
